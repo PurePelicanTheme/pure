@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic);
+
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -77,8 +79,10 @@ pre {
     padding-top: 15px;
     clear: right;
     font-weight: 300;
+    font-family: "PT Sans","Lucida Sans",Geneva,Verdana,sans-serif;
     color: rgb(0, 0, 0);
     word-wrap: break-word;
+    background-color: #000;
 }
 
 .about-author {
@@ -120,7 +124,7 @@ pre {
     color: #fff;
     border-bottom: 1px solid rgba(255,255,255,0.3);
     text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-    font-family: "freight-sans-pro","Myriad Pro","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+    font-family: "PT Sans","Lucida Sans",Geneva,Verdana,sans-serif;
 }
 
 .tagline {
@@ -135,7 +139,8 @@ pre {
 .links a {
     font-size: 15px;
     padding-left: 15px;
-    font-family: sans-serif;
+    font-family: "PT Sans","Lucida Sans",Geneva,Verdana,sans-serif;
+    background-color: #000;
     letter-spacing: 2px;
     text-shadow: 0 1px 3px rgba(0,0,0,0.3);
     text-decoration: none;
