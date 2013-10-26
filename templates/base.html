@@ -13,44 +13,37 @@
         <title>{% block title %}{{ SITENAME }} // {{ TAGLINE }}{% endblock title %}</title>
     {% endblock head %}
 
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/pure-min.css">
     <link rel="stylesheet" href="{{ SITEURL }}/theme/pure.css">
     <link rel="stylesheet" href="{{ SITEURL }}/theme/pygments.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="{{ SITEURL }}/theme/jquery-2.0.3.min.js"></script>
 </head>
 
 <body>
-        {% block content %}
-        {% endblock %}
-    </div>
-
-    <script src="http://yui.yahooapis.com/3.12.0/build/yui/yui-min.js"></script>
+    {% block content %}
+    {% endblock %}
     <script>
-        YUI().use('node-base', 'node-event-delegate', function (Y) {
-            // This just makes sure that the href="#" attached to the <a> elements
-            // don't scroll you back up the page.
-            Y.one('body').delegate('click', function (e) {
-                e.preventDefault();
-            }, 'a[href="#"]');
+        var $top = $('.go-top');
+
+        // Show or hide the sticky footer button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $top.fadeIn(200);
+            } else {
+                $top.fadeOut(200);
+            }
         });
-    </script>
-    <script>
-        $(document).ready(function() {
-            // Show or hide the sticky footer button
-            $(window).scroll(function() {
-                if ($(this).scrollTop() > 200) {
-                    $('.go-top').fadeIn(200);
-                } else {
-                    $('.go-top').fadeOut(200);
-                }
-            });
 
-            // Animate the scroll to top
-            $('.go-top').click(function(event) {
-                event.preventDefault();
+        // Animate the scroll to top
+        $top.click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop: 0}, 300);
+        })
 
-                $('html, body').animate({scrollTop: 0}, 300);
-            })
+        // Makes sure that the href="#" attached to the <a> elements
+        // don't scroll you back up the page.
+        $('body').on('click', 'a[href="#"]', function(event) {
+            event.preventDefault();
         });
     </script>
     {% include 'analytics.html' %}
