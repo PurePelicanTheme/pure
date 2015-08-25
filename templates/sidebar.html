@@ -8,6 +8,11 @@
                 {% for title, link in MENUITEMS %}
                     <p class="links"><a href="{{ link }}">{{ title }}</a></p>
                 {% endfor %}
+                {% if DISPLAY_CATEGORIES_ON_MENU -%}
+                {% for cat, null in categories %}
+                    <p class="links"><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></p>
+                {% endfor %}
+                {% endif %}
                     <p class="social">
                 {% for title, link in SOCIAL %}
                         <a href="{{ link }}">
