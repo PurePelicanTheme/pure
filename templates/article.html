@@ -24,7 +24,7 @@
                         <img class="avatar" alt="{{ article.author }}" src="{{ article.author_gravatar }}">
                     {% endif %}
                 </a>
-                <h2 class="article-info">{{ article.author }}</h2>
+                <a href="{{ SITEURL }}/{{ article.author.url }}"><h2 class="article-info">{{ article.author }}</h2></a>
                 <small class="about-author">{{ article.about_author }}</small>
                 <h5>Published</h5>
                 <p>{{ article.locale_date }}</p>
